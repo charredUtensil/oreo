@@ -1,0 +1,14 @@
+#!/bin/bash
+
+INPIPE=/tmp/dummy_$$_in
+OUTPIPE=/tmp/dummy_$$_out
+
+mkfifo $INPIPE
+mkfifo $OUTPIPE
+
+xterm -e "cat $INPIPE & cat > $OUTPIPE" &
+cat $OUTPIPE &
+cat > $INPIPE
+
+rm $INPIPE
+rm $OUTPIPE

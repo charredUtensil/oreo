@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby
+require File.expand_path(File.dirname(__FILE__) + '/server.rb')
+require 'optparse'
+
+def argfail(msg)
+  $stderr.puts msg
+  $stderr.puts "#{$0} -h for help"
+end
+
+options = {}
+OptionParser.new do |opts|
+  # Set a banner, displayed at the top of the help screen.
+  opts.banner = "#{$0} [options] - Run a minecraft server and open a console. You may want to run this in a screen session for persistence."
+  
+  opts.on('-b', '--bell', 'Add an ASCII bell character to the end of each output line') do
+    options[:bell] = true
+  end
+  
+  opts.on( '-c', '--color', 'Output in color using xterm color escape codes' ) do
+    options[:color] = true
+  end
+  
+  #opts.on('-d', '--daemon', 'Become a daemon once the server starts') do
+  #  options[:daemon] = true
+  #end
+  
+  opts.on('--development', 'Load development stuff') do
+    options[:development] = true
+  end
+  
+  opts.on('--file [FILE]', 'Run fake server with input from a specified server.log file') do |file|
+    argfail('--fake-terminal, --file, and --minecraft options may not be used interchangably') if (options[:shell] or options[:minecraft])
+    options[:shell] = "cat #{file}"
+  end
+  
+  opts.on('--fake-terminal', 'Run fake server with input from a spawned terminal window') do
+    argfail('--fake-terminal, --file, and --minecraft options may not be used interchangably') if (options[:shell] or options[:minecraft])
+    options[:shell] = MinecraftServer::OREO_DIRECTORY + '/dummy_server'
+  end
+  
+  opts.on('-m', '--minecraft [DIRECTORY]', 'Manually specify the directory minecraft_server.jar is in. If omitted, it is assumed that minecraft is in Oreo\'s parent directory') do |dir|
+    argfail('--fake-terminal, --file, and --minecraft options may not be used interchangably') if (options[:shell] or options[:minecraft])
+    options[:minecraft] = dir
+  end
+  
+  opts.on('-q', '--quiet', 'Start server in Quiet mode (only print fatal errors)') do
+    options[:verbose] = :fatal
+  end
+  
+  opts.on('-v', '--verbose', 'Start server in Verbose mode (show all server output)') do
+    options[:verbose] = :debug
+  end
+  
+  # This displays the help screen. All programs are assumed to have this option.
+  opts.on( '-h', '--help', 'Display this screen' ) do
+    puts opts
+    exit
+  end
+end.parse(ARGV)
+
+# First load dev stuff
+require MinecraftServer::OREO_DIRECTORY + '/development.rb' if options[:development]
+
+# Now load server
+sv = nil
+if options[:minecraft]
+  sv = MinecraftServer.new(options[:minecraft])
+else
+  sv = MinecraftServer.new
+  if options[:shell]
+    sv.shell_command = options[:shell]
+  end
+end
+
+# Modify console stuff
+sv.logger.bell = true if options[:bell]
+sv.logger.color_output = true if options [:color]
+sv.logger.output_level = options[:verbose] if options[:verbose]
+
+# Start server and open console
+sv.start
+sv.console

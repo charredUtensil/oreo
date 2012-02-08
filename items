@@ -1,0 +1,304 @@
+#    BLOCKS
+1     stone, smooth stone
+2     grass
+3     dirt
+4     cobblestone
+5     wooden plank, plank
+6     sapling
+6.1   redwood sapling, spruce sapling
+6.2   birch sapling
+7     bedrock
+12    sand
+13    gravel
+14    gold ore
+15    iron ore
+16    coal ore
+17    wood, log, oak wood, oak log
+17.1  redwood log, spruce log
+17.2  birch wood, birch log
+17.3  jungle wood, jungle log
+18    leaf, hedge, oak leaf
+18.1  redwood leaf, spruce leaf
+18.2  birch leaf
+18.3  jungle leaf
+19    sponge
+20    glass
+21    lapis lazuli ore
+22    lapis lazuli block
+23    dispenser
+24    sandstone
+25    note block
+27    powered rail
+28    detector rail
+29    sticky piston
+30    cobweb
+31    tall grass
+32    dead bush
+33    piston
+35    wool, white wool
+35.1  orange wool
+35.2  magenta wool
+35.3  light blue wool
+35.4  yellow wool
+35.5  lime wool
+35.6  pink wool
+35.7  gray wool, grey wool
+35.8  light gray wool, light grey wool
+35.9  cyan wool
+35.10 purple wool
+35.11 blue wool
+35.12 brown wool
+35.13 green wool
+35.14 red wool
+35.15 black wool
+37    dandelion
+38    rose
+39    brown mushroom
+40    red mushroom
+41    gold block
+42    iron block
+44    stone slab, slab
+44.1  sandstone slab
+44.2  wooden slab
+44.3  cobblestone slab
+44.4  brick slab
+44.5  stone brick slab
+45    brick block
+46    tnt, dynamite
+47    bookshelf
+48    moss stone
+49    obsidian
+50    torch
+52    monster spawner, spawner
+53    wooden stairs
+54    chest
+56    diamond ore
+57    diamond block
+58    crafting table
+61    furnace
+65    ladder
+66    rail, track
+67    stone stairs
+69    lever
+70    stone pressure plate
+72    wooden pressure plate
+73    redstone ore
+76    redstone torch, inverter, not gate
+77    stone button, button
+79    ice
+80    snow block
+81    cactus
+82    clay block
+84    jukebox
+85    fence
+86    pumpkin
+87    netherrack, hellstone
+88    soul sand
+89    glowstone block
+91    jack o' lantern, jack o lantern
+96    trapdoor
+98    stone brick
+98.1  mossy stone brick
+98.2  cracked stone brick
+99    huge brown mushroom
+100   huge red mushroom
+101   iron grate, iron fence
+102   glass pane
+103   melon
+106   vines
+107   fence gate
+108   brick stairs
+109   stone brick stairs
+110   mycelium
+111   lilly pad
+112   nether brick
+113   nether brick fence
+114   nether brick stairs
+115   nether wart
+116   enchantment table
+121   white stone, enderstone
+122   dragon egg
+#    ITEMS
+256    iron shovel
+257    iron pickaxe
+258    iron axe
+259    flint and steel
+260    apple
+261    bow
+262    arrow
+263    coal
+263.1  charcoal
+264    diamond
+265    iron ingot, iron bar
+266    gold ingot, gold bar
+267    iron sword
+268    wooden sword
+269    wooden shovel
+270    wooden pickaxe
+271    wooden axe
+272    stone sword
+273    stone shovel
+274    stone pickaxe
+275    stone axe
+276    diamond sword
+277    diamond shovel
+278    diamond pickaxe
+279    bread
+279    diamond axe
+280    stick
+281    bowl
+282    mushroom soup
+283    gold sword
+284    gold shovel
+285    gold pickaxe
+286    gold axe
+287    string
+288    feather
+289    gunpowder, sulfur, sulphur
+290    wooden hoe
+291    stone hoe
+292    iron hoe
+293    diamond hoe
+294    gold hoe
+295    seeds
+296    wheat
+298    leather cap
+299    leather tunic
+300    leather pants
+301    leather boots
+306    iron helmet
+307    iron chestplate
+308    iron leggings
+309    iron boots
+310    diamond helmet
+311    diamond chestplate
+312    diamond leggings
+313    diamond boots
+314    gold helmet
+315    gold chestplate
+316    gold leggings
+317    gold boots
+318    flint
+319    raw porkchop
+320    cooked porkchop
+321    painting
+322    golden apple
+323    sign
+324    wooden door
+325    bucket, empty bucket
+326    water bucket
+327    lava bucket
+328    minecart, cart
+329    saddle
+330    iron door
+331    redstone
+332    snowball
+333    boat
+334    leather
+335    milk
+336    clay brick
+337    clay
+338    sugar cane, reed
+339    paper
+340    book
+341    slimeball
+342    storage minecart
+343    powered minecart
+344    egg
+345    compass
+346    fishing rod
+347    clock
+348    glowstone dust
+349    raw fish
+350    cooked fish
+351    dye, ink sac, black dye
+351.1  red dye
+351.2  green dye
+351.3  cocoa beans, brown dye
+351.4  lapis lazuli, blue dye
+351.5  purple dye
+351.6  cyan dye
+351.7  light gray dye, light grey dye
+351.8  gray dye, grey dye
+351.9  pink dye
+351.10 lime dye
+351.11 yellow dye
+351.12 light blue dye
+351.13 magenta dye
+351.14 orange dye
+351.15 bone meal, white dye
+352    bone
+353    sugar
+354    cake
+355    bed
+356    redstone repeater, diode, repeater
+357    cookie
+358    map
+359    shears
+360    melon slice
+361    pumpkin seed
+362    melon seed
+363    raw beef
+364    steak
+365    raw chicken
+366    cooked chicken
+367    rotten flesh
+368    ender pearl
+369    blaze rod
+370    ghast tear
+371    gold nugget
+372    nether wart
+373    potion
+374    glass bottle
+375    spider eye
+376    fermented spider eye
+377    blaze powder
+378    magma cream
+379    brewing stand
+380    cauldron
+381    eye of ender
+382    glistening melon
+383.20 nitroglycerine, spawn primed tnt
+383.50 creeper egg, spawn creeper
+383.51 skeleton egg, spawn skeleton
+383.52 spider egg, spawn spider
+383.53 giant egg, spawn giant
+383.54 zombie egg, spawn zombie
+383.55 slime egg, spawn slime
+383.56 ghast egg, spawn ghast
+383.57 zombie pigman egg, pig zombie egg, spawn zombie pigman, spawn pig zombie
+383.58 enderman egg, spawn enderman
+383.59 cave spider egg, spawn cave spider
+383.60 silverfish egg, spawn silverfish
+383.61 blaze egg, spawn blaze
+383.62 magma cube egg, spawn magma cube
+# A bit dangerous and easily made by accident...
+# Reenable if you want, but spawning it in
+# the overworld is roughly equivalent to setting
+# off a nuclear bomb... that chases you...
+#383.63 enderdragon egg, spawn enderdragon
+383.90 pig egg, spawn pig
+383.91 sheep egg, spawn sheep
+383.92 cow egg, spawn cow
+383.93 chicken egg, spawn chicken
+383.94 squid egg, spawn squid
+383.95 wolf egg, spawn wolf
+383.96 mooshroom egg, spawn mooshroom
+383.97 snow golem egg, spawn snow golem
+383.98 ocelot egg, spawn ocelot
+383.120 villager egg, spawn villager
+383.200 ender crystal egg, spawn ender crystal
+384    bottle o' enchanting, bottle o enchanting
+
+# music discs
+2256    13 disc
+2257    cat disc
+2258    blocks disc
+2259    chirp disc
+2260    far disc
+2261    mall disc
+2262    mellohi disc
+2263    stal disc
+2264    strad disc
+2265    ward disc
+2266    11 disc

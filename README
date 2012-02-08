@@ -1,0 +1,22 @@
+As of now, Oreo is only supported on Linux, but with the exception of a few commands (namely /update and /backup,) it should work alright on Windows, but no promises.
+
+Install Ruby, if it's not installed. I strongly reccommend the latest 1.9 but it might still be compatible with 1.8
+2) Stop your Minecraft server, if it's running
+3) cd to the directory your Minecraft server is installed in
+4) Install Oreo in a subdirectory of that (Installer coming soon?)
+5) To start the server, execute the run_server script. If you're remoted into this box, I reccommend starting it in a screen session. For added security, I'd reccommend running RAdmin as a user that isn't you, especially if you have superuser privelages and especially if you run in --development mode. Here's the shell script I use to run my server:
+
+Code: Select all
+    #!/bin/bash
+    screen -dr minecraft || screen -S minecraft sudo -u minecraft /etc/minecraft/oreo/run_server --color --development $*
+
+
+6) You'll need to join your server. It'll be exactly where it was when you ran vanilla. Oreo, again, isn't a mod. It shouldn't need to be updated when Minecraft does, and it shouldn't change anything about itself.
+7) In the console, type the following command:
+
+    /allow YOURUSERNAMEHERE *
+
+This will grant you access to every command Oreo has to offer. If you have op privelages, you will need to /deop yourself or Oreo won't parse your commands.
+8) Type /help for a list of commands or /help COMMAND for help using that command.
+
+Files: Oreo stores its code files in the directory you extract the tar. This is meant to be a subdirectory of the Minecraft root folder, but that's not entirely necessary. It also makes a file, oreo.log, in the minecraft root folder, and a file for each user's preferences of the form username.cfg in the same folder Minecraft saves its player data.

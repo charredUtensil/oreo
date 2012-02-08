@@ -53,9 +53,11 @@ Version 0.12    /fortune command is available if /usr/games/fortune exists
                 fixed crash after /stop
                 moved changelog to its own file
                 added MIT License
+        0.12.1  Removed /upload command
+                set up initial github
+                github commit test
 
 UPCOMING FEATURES
-- SVN integration
 - Don't update if no newer version
 - /redo or /r: repeat last command user did
 - Support for triggered events (execute scripts on login, logout, etc...)

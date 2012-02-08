@@ -49,17 +49,6 @@ class SystemCommand < OreoCommand
   end
 end
 
-class UploadCommand < OreoCommand
-  HELP = 'don\'t use'
-  bind 'upload!'
-  
-  def execute(user, server)
-    raise "Failed to tar" unless system("cd #{MinecraftServer::OREO_DIRECTORY}; tar -czf oreo.tgz * 2>&1")
-    raise "Failed to upload" unless system("scp #{MinecraftServer::OREO_DIRECTORY}/oreo.tgz #{user}@#{server}:public_html/oreo/#{MinecraftServer::OREO_VERSION}.tgz")
-    raise "Failed to symlink" unless system("ssh #{user}@#{server} 'cd public_html/oreo; rm current.tgz; ln -s #{MinecraftServer::OREO_VERSION}.tgz current.tgz'")
-  end
-end
-
 #>--<{ BETA STUFF }>--<#
 
 begin

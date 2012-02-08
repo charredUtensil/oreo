@@ -8,7 +8,7 @@ require File.expand_path(File.dirname(__FILE__) + '/logger.rb')
 
 class MinecraftServer
   # Version constants
-  OREO_VERSION = '0.12'
+  OREO_VERSION = '0.12.1'
   SUPPORTED_MINECRAFT_VERSIONS = ['Beta 1.7.3', 'Beta 1.8.1', '1.0.0', '1.0.1', '1.1']
   
   # Numeric constants

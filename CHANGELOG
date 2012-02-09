@@ -56,6 +56,8 @@ Version 0.12    /fortune command is available if /usr/games/fortune exists
         0.12.1  Removed /upload command
                 set up initial github
                 github commit test
+        0.12.2  changed /update to work with git instead of arbitrarily contrived tar method
+                need to add support for zip later
 
 UPCOMING FEATURES
 - Don't update if no newer version
@@ -64,3 +66,4 @@ UPCOMING FEATURES
 - Modding support (Yeah! Modding a mod! Who'd've thought?)
 - Multiple names for a command
 - Allow for remote administration (or at least the ability to daemonize
+- Improve /backup

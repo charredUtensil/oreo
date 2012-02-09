@@ -209,7 +209,7 @@ class ExitCommand < OreoCommand
       #  end
       #end
     else
-      @server.tell(@user,"Ok. You asked for it!")
+      @server.tell(@user,"Well... Ok. You asked for it!")
       sleep 1
       @server.execute('kick ' + @user)
       @server.players[@user].logout

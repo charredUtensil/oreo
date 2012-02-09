@@ -1,22 +1,47 @@
-As of now, Oreo is only supported on Linux, but with the exception of a few commands (namely /update and /backup,) it should work alright on Windows, but no promises.
+Oreo is a lightweight wrapper designed to add a simplified permissions system to an existing vanilla Minecraft server. It is designed to be agile, ready to handle even weekly snapshots with a minimum of fuss, whereas most commonly used mods take days or weeks to adapt to Mojang's changes. As it does not and cannot implement protection or other similar features offered by standard Minecraft or Bukkit mods, Oreo is not meant to be an anti-griefing tool. However, it is incredibly useful for smaller private servers
 
-Install Ruby, if it's not installed. I strongly reccommend the latest 1.9 but it might still be compatible with 1.8
-2) Stop your Minecraft server, if it's running
-3) cd to the directory your Minecraft server is installed in
-4) Install Oreo in a subdirectory of that (Installer coming soon?)
-5) To start the server, execute the run_server script. If you're remoted into this box, I reccommend starting it in a screen session. For added security, I'd reccommend running RAdmin as a user that isn't you, especially if you have superuser privelages and especially if you run in --development mode. Here's the shell script I use to run my server:
+Features:
+> "Wraps" Minecraft server's io instead of modifying code, so it doesn't need to be updated every time Minecraft is, so Mojang patches can be applied instantaneously.
+> Because it is a wrapper and not a mod, Minecraft can be updated and restarted without shutting down Oreo.
+> Because it is written in Ruby, Oreo can be updated without shutting down Minecraft or itself.
 
-Code: Select all
+Disadvantages:
+> Can't implement anything you couldn't do from the vanilla terminal, and can't respond to any events that don't show up in that terminal (couldn't implement a /tp <location> command or a /spawn <mob> command)
+> Can't print any messages to users without annoying prefixes (need to use the /say and /talk commands to communicate)
+> Can't re-implement any commands already defined by the server (like /talk or /kill)
+
+--~<( INSTALLATION )>~--
+
+1) Install Ruby, if it's not installed. I strongly reccommend the latest 1.9 but it might still be compatible with 1.8
+
+2) Stop your Minecraft server if it's running
+
+3) Open a terminal to the directory your Minecraft server is installed in
+
+4) type the following command:
+
+    git clone git@github.com:charredUtensil/oreo.git
+    
+5) To start the server, execute the run_server script. If you're remoted into this box, I reccommend starting it in a screen session. For added security, I'd reccommend running Oreo as a user that isn't you, especially if you have superuser privelages and especially if you run in --development mode. Here's the shell script I use to run my development server:
+
     #!/bin/bash
     screen -dr minecraft || screen -S minecraft sudo -u minecraft /etc/minecraft/oreo/run_server --color --development $*
 
 
 6) You'll need to join your server. It'll be exactly where it was when you ran vanilla. Oreo, again, isn't a mod. It shouldn't need to be updated when Minecraft does, and it shouldn't change anything about itself.
-7) In the console, type the following command:
+
+7) In the console, grant yourself access to every command Oreo has to offer by typing the following command:
 
     /allow YOURUSERNAMEHERE *
 
-This will grant you access to every command Oreo has to offer. If you have op privelages, you will need to /deop yourself or Oreo won't parse your commands.
-8) Type /help for a list of commands or /help COMMAND for help using that command.
+8) If you have op privelages, you will need to /deop yourself or Oreo will ignore your commands
 
-Files: Oreo stores its code files in the directory you extract the tar. This is meant to be a subdirectory of the Minecraft root folder, but that's not entirely necessary. It also makes a file, oreo.log, in the minecraft root folder, and a file for each user's preferences of the form username.cfg in the same folder Minecraft saves its player data.
+9) Type /help for a list of commands or /help COMMAND for help using that command.
+
+--~<( KNOWN ISSUES )>~--
+
+1) As of now, Oreo is only supported on Linux, but with the exception of a few commands (namely /update and /backup,) it should work alright on Windows, but no promises.
+
+--~<( MISCELLANIA )>~--
+
+Files: Oreo stores its code files in the directory it is installed in. If this is a subdirectory of the Minecraft root folder, Oreo will detect Minecraft automatically, but that's not entirely necessary. It also makes a file, oreo.log, in the minecraft root folder, and a file for each user's preferences of the form username.cfg in the same folder Minecraft saves its player data.

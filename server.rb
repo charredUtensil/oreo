@@ -8,7 +8,7 @@ require File.expand_path(File.dirname(__FILE__) + '/logger.rb')
 
 class MinecraftServer
   # Version constants
-  OREO_VERSION = '0.12.1'
+  OREO_VERSION = '0.12.2'
   SUPPORTED_MINECRAFT_VERSIONS = ['Beta 1.7.3', 'Beta 1.8.1', '1.0.0', '1.0.1', '1.1']
   
   # Numeric constants
@@ -18,7 +18,7 @@ class MinecraftServer
   # Directories & files
   OREO_DIRECTORY = File.dirname(__FILE__)
   ITEMS_FILE = OREO_DIRECTORY + '/items'
-  OREO_URL = 'http://home.adelphi.edu/~cd17347/oreo/current.tgz'
+  OREO_ZIP_URL = 'https://github.com/charredUtensil/oreo/zipball/master'
   
   # Executables
   SERVER_SHELL_COMMAND_DUMMY = OREO_DIRECTORY+'/dummy_server'
@@ -257,21 +257,28 @@ class MinecraftServer
   end
   
   def update_oreo
-    cookietar = "#{OREO_DIRECTORY}/oreo.tgz"
-    cookietar_old = "#{OREO_DIRECTORY}/oreo-old.tgz"
+    #cookietar = "#{OREO_DIRECTORY}/oreo.tgz"
+    #cookietar_old = "#{OREO_DIRECTORY}/oreo-old.tgz"
     begin
-      log "Updating Oreo from #{OREO_URL}", :info
-      File.delete cookietar if File.exist? cookietar
-      wget OREO_URL, cookietar
-      raise "File failed to download" unless File.exist? cookietar
-      File.delete cookietar_old if File.exist? cookietar_old
-      unless system("cd #{OREO_DIRECTORY}; tar -czf #{cookietar_old} * 2>&1")
-        File.delete cookietar
-        raise "Failed to backup old installation"
+      #log "Updating Oreo from #{OREO_URL}", :info
+      #File.delete cookietar if File.exist? cookietar
+      #wget OREO_URL, cookietar
+      #raise "File failed to download" unless File.exist? cookietar
+      #File.delete cookietar_old if File.exist? cookietar_old
+      #unless system("cd #{OREO_DIRECTORY}; tar -czf #{cookietar_old} * 2>&1")
+      #  File.delete cookietar
+      #  raise "Failed to backup old installation"
+      #end
+      #result = system("cd #{OREO_DIRECTORY}; tar -xzf #{cookietar} 2>&1")
+      #File.delete cookietar
+      #return result
+      if File.directory? "#{OREO_DIRECTORY}/.git"
+        log "Updating Oreo from Git repository", :info
+        return system "cd #{OREO_DIRECTORY}; git pull 2>&1"
+      else
+        log "Oreo must be installed with git to self-update", :error
+        return false
       end
-      result = system("cd #{OREO_DIRECTORY}; tar -xzf #{cookietar} 2>&1")
-      File.delete cookietar
-      return result
     rescue Exception => e
       log "Update failed", :error
       log e, :error

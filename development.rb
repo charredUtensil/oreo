@@ -4,18 +4,18 @@ puts "LOADING DEVELOPMENT TOOLS..."
 
 #>--<{ DEBUGGING COMMANDS }>--<#
 
-class ReloadCommand < OreoCommand
-  HELP = '/reload - Reload Oreo dev copy from disk'
-  bind :reload
-  
-  def execute
-    devdir = MinecraftServer::OREO_DIRECTORY.sub(/[\\\/]?$/,'_dev')
-    if File.directory? devdir
-      system "cp -r #{devdir}/* #{MinecraftServer::OREO_DIRECTORY}"
-    end
-    return (@server.reload and "Oreo reloaded" or "Oreo reload failed")
-  end
-end
+#class ReloadCommand < OreoCommand
+#  HELP = '/reload - Reload Oreo dev copy from disk'
+#  bind :reload
+#  
+#  def execute
+#    devdir = MinecraftServer::OREO_DIRECTORY.sub(/[\\\/]?$/,'_dev')
+#    if File.directory? devdir
+#      system "cp -r #{devdir}/* #{MinecraftServer::OREO_DIRECTORY}"
+#    end
+#    return (@server.reload and "Oreo reloaded" or "Oreo reload failed")
+#  end
+#end
 
 class ForceReloadCommand < StopCommand
   HELP = '/reload! <seconds> [message] - Restart the server and force a full reload of Oreo'

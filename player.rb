@@ -62,7 +62,7 @@ class MinecraftPlayer
         f.write({'ips' => @ips.to_a, 'permissions' => @permissions.to_a, 'last_command' => @last_command}.to_yaml)
       end
     rescue Exception => e
-      @server.log("Couldn't save player file for #{@username}", :error, :red)
+      @server.log("Couldn't save player file for #{@username}", :error)
     end
   end
 end

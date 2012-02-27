@@ -53,11 +53,14 @@ Version 0.12    /fortune command is available if /usr/games/fortune exists
                 fixed crash after /stop
                 moved changelog to its own file
                 added MIT License
-        0.12.1  Removed /upload command
+        0.12.1  removed /upload command
                 set up initial github
                 github commit test
         0.12.2  changed /update to work with git instead of arbitrarily contrived tar method
                 need to add support for zip later
+        0.12.3  added redstone lamp
+        0.12.4  more 1.2 items
+                fixed bug logging failed player saves
 
 UPCOMING FEATURES
 - Don't update if no newer version

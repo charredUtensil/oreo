@@ -118,6 +118,7 @@
 116   enchantment table
 121   white stone, enderstone
 122   dragon egg
+123   redstone lamp
 #    ITEMS
 256    iron shovel
 257    iron pickaxe
@@ -286,9 +287,11 @@
 383.96 mooshroom egg, spawn mooshroom
 383.97 snow golem egg, spawn snow golem
 383.98 ocelot egg, spawn ocelot
+383.99 iron golem egg, spawn iron golem
 383.120 villager egg, spawn villager
 383.200 ender crystal egg, spawn ender crystal
 384    bottle o' enchanting, bottle o enchanting
+385    fire charge
 
 # music discs
 2256    13 disc

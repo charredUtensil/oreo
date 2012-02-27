@@ -80,14 +80,15 @@ class OreoCommand
 end
 
 class AllowCommand < OreoCommand
-  HELP = '/allow <player or all> <command> - Allow player to use command'
+  HELP = '/allow <player or all> <commands> - Allow player to use command(s)'
   bind :allow
   
-  def execute(player,cmd)
+  def execute(player,*cmds)
+    raise ArgumentError.new("Please supply one or more commands") if cmds.empty?
     player = autocomplete_player player unless player == 'all'
-    raise ArgumentError.new("Invalid command #{cmd}") unless cmd == '*' or COMMANDS.keys.include? cmd
-    p=@server.players[player]
-    p.allow(cmd)
+    cmds.each{|cmd| raise ArgumentError.new("Invalid command #{cmd}") unless cmd == '*' or COMMANDS.keys.include? cmd}
+    p = @server.players[player]
+    cmds.each{|cmd| p.allow(cmd)}
     p.save
     if player == 'all'
       @server.say "Everyone may now use the #{cmd} command"
@@ -441,11 +442,12 @@ class RevokeCommand < OreoCommand
   HELP = '/revoke <player> <command> - Deny player access to command'
   bind :revoke
   
-  def execute(player,cmd)
+  def execute(player,*cmds)
+    raise ArgumentError.new("Please supply one or more commands") if cmds.empty?
     player = autocomplete_player player unless player == 'all'
-    raise ArgumentError.new("Invalid command #{cmd}") unless cmd == '*' or COMMANDS.key? cmd
+    cmds.each{|cmd| raise ArgumentError.new("Invalid command #{cmd}") unless cmd == '*' or COMMANDS.keys.include? cmd}
     p = @server.players[player]
-    p.revoke(cmd)
+    cmds.each{|cmd| p.revoke(cmd)}
     p.save
     "revoked #{cmd} from #{player}"
   end

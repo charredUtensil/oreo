@@ -90,10 +90,16 @@ class AllowCommand < OreoCommand
     p = @server.players[player]
     cmds.each{|cmd| p.allow(cmd)}
     p.save
-    if player == 'all'
-      @server.say "Everyone may now use the #{cmd} command"
+    message = nil
+    if cmds.length = 1
+      message = "may now use the #{cmds[0]} command"
     else
-      @server.tell player, "You may now use the #{cmd} command"
+      message = "may now use the #{cmds[0...cmds.length-1].join(', ')} and #{cmds[cmds.length-1]} commands"
+    end
+    if player == 'all'
+      @server.say "Everyone #{message}"
+    else
+      @server.tell player, "You #{message}"
     end
     return "allowed #{player} to use the #{cmd} command"
   end

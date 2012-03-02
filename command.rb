@@ -455,7 +455,7 @@ class RevokeCommand < OreoCommand
     p = @server.players[player]
     cmds.each{|cmd| p.revoke(cmd)}
     p.save
-    "revoked #{cmd} from #{player}"
+    "revoked #{cmds.inspect} from #{player}"
   end
 end
 

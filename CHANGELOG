@@ -61,6 +61,8 @@ Version 0.12    /fortune command is available if /usr/games/fortune exists
         0.12.3  added redstone lamp
         0.12.4  more 1.2 items
                 fixed bug logging failed player saves
+        0.12.5  tested with 1.2
+                fixed /allow and /revoke
 
 UPCOMING FEATURES
 - Don't update if no newer version

@@ -91,7 +91,7 @@ class AllowCommand < OreoCommand
     cmds.each{|cmd| p.allow(cmd)}
     p.save
     message = nil
-    if cmds.length = 1
+    if cmds.length == 1
       message = "may now use the #{cmds[0]} command"
     else
       message = "may now use the #{cmds[0...cmds.length-1].join(', ')} and #{cmds[cmds.length-1]} commands"

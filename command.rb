@@ -101,7 +101,7 @@ class AllowCommand < OreoCommand
     else
       @server.tell player, "You #{message}"
     end
-    return "allowed #{player} to use the #{cmd} command"
+    return "allowed #{player} to use #{cmds.inspect}"
   end
 end
 

@@ -8,8 +8,14 @@ require File.expand_path(File.dirname(__FILE__) + '/logger.rb')
 
 class MinecraftServer
   # Version constants
-  OREO_VERSION = '0.12.5'
-  SUPPORTED_MINECRAFT_VERSIONS = ['Beta 1.7.3', 'Beta 1.8.1', '1.0.0', '1.0.1', '1.1', '1.2.2']
+  OREO_VERSION = '0.12.6'
+  SUPPORTED_MINECRAFT_VERSIONS = [
+    'Beta 1.7.3',
+    'Beta 1.8.1',
+    '1.0.0', '1.0.1',
+    '1.1',
+    '1.2.2','1.2.3'
+  ]
   
   # Numeric constants
   CHARS_PER_SAY = 40
@@ -213,7 +219,7 @@ class MinecraftServer
     say "Goodbye."
     player_names_online.each do |player|
       execute "kick #{player}"
-      player.logout
+      @players[player].logout
     end
     @daemon.join if @daemon and @daemon != Thread.current
     @daemon = nil
@@ -458,7 +464,7 @@ private
         else
           log "Minecraft v#{match[:version]} (untested with this version of Oreo)", :warn
           logger.output_level = :debug
-          log "Debug mode automatically enabled. You may turn it off by typing the verbose command.", :debug
+          log "Verbose logging automatically enabled. You may turn it off by typing the verbose command.", :debug
         end
       elsif match = MINECRAFT_READY_REGEX.match(line)
         log "Server started successfully", :info
@@ -467,7 +473,7 @@ private
         log line.sub(PREFIX_REGEX,''), :warn
       elsif line =~ /\[(ERROR|SEVERE|FATAL)\]/
         log line.sub(PREFIX_REGEX,''), :error
-        log "Debug mode automatically enabled", :warn
+        log "Verbose logging automatically enabled. You may turn it off by typing the verbose command.", :warn
         logger.output_level = :debug
       end
     elsif not LINE_IGNORE_REGEX =~ line

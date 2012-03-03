@@ -63,6 +63,7 @@
 44.3  cobblestone slab
 44.4  brick slab
 44.5  stone brick slab
+44.6  alt stone slab
 45    brick block
 46    tnt, dynamite
 47    bookshelf
@@ -100,6 +101,7 @@
 98    stone brick
 98.1  mossy stone brick
 98.2  cracked stone brick
+98.3  circle stone brick
 99    huge brown mushroom
 100   huge red mushroom
 101   iron grate, iron fence

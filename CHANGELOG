@@ -63,6 +63,10 @@ Version 0.12    /fortune command is available if /usr/games/fortune exists
                 fixed bug logging failed player saves
         0.12.5  tested with 1.2
                 fixed /allow and /revoke
+        0.12.6  tested with 1.2.3
+                changed a few explanation strings
+                fixed bug with stop server commands kicking players
+                added alt stone slab and circle stone brick
 
 UPCOMING FEATURES
 - Don't update if no newer version

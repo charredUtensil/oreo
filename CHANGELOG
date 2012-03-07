@@ -67,6 +67,9 @@ Version 0.12    /fortune command is available if /usr/games/fortune exists
                 changed a few explanation strings
                 fixed bug with stop server commands kicking players
                 added alt stone slab and circle stone brick
+        0.12.7  fixed a potential security flaw in /backup
+                /precip is now NOISY
+                added end portal frame to /give
 
 UPCOMING FEATURES
 - Don't update if no newer version

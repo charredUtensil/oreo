@@ -8,7 +8,7 @@ require File.expand_path(File.dirname(__FILE__) + '/logger.rb')
 
 class MinecraftServer
   # Version constants
-  OREO_VERSION = '0.12.6'
+  OREO_VERSION = '0.12.7'
   SUPPORTED_MINECRAFT_VERSIONS = [
     'Beta 1.7.3',
     'Beta 1.8.1',
@@ -113,6 +113,8 @@ class MinecraftServer
     
     @logger = MinecraftLogger.new(@minecraft_directory + '/oreo.log')
     
+    @minecraft_version = nil
+    
     begin
       load_config
     rescue Exception => e
@@ -129,7 +131,8 @@ class MinecraftServer
   end
   
   attr_accessor :shell_command
-  attr_reader :items, :item_names, :players, :properties, :minecraft_directory, :backup_directory, :players_directory, :server_properties_file, :logger
+  attr_reader :items, :item_names, :players, :properties, :minecraft_directory,
+    :backup_directory, :players_directory, :server_properties_file, :logger, :minecraft_version
   
   def running?
     return @running
@@ -459,10 +462,11 @@ private
       if match = VERSION_CHECK_REGEX.match(line)
         log "Oreo      v#{OREO_VERSION}",:info
         log "Ruby      v#{RUBY_VERSION}", :info
-        if SUPPORTED_MINECRAFT_VERSIONS.include? match[:version]
-          log "Minecraft v#{match[:version]}", :info
+        @minecraft_version = match[:version]
+        if SUPPORTED_MINECRAFT_VERSIONS.include? @minecraft_version
+          log "Minecraft v#{@minecraft_version}", :info
         else
-          log "Minecraft v#{match[:version]} (untested with this version of Oreo)", :warn
+          log "Minecraft v#{@minecraft_version} (untested with this version of Oreo)", :warn
           logger.output_level = :debug
           log "Verbose logging automatically enabled. You may turn it off by typing the verbose command.", :debug
         end

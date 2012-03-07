@@ -6,7 +6,9 @@ class VersionCommand < OreoCommand
   bind :version
   
   def execute()
-    return "Ruby #{RUBY_VERSION}\nOreo #{MinecraftServer::OREO_VERSION}" #TODO: Save Minecraft version
+    return "Ruby #{RUBY_VERSION}
+Oreo #{MinecraftServer::OREO_VERSION}
+Minecraft #{@server.minecraft_version}"
   end
 end
 

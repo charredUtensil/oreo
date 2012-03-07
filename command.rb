@@ -142,7 +142,7 @@ class BackupCommand < OreoCommand
       @server.execute 'save-all'
       @server.save_config
       sleep 4
-      comment = args.join('_').gsub(/^W/,'')
+      comment = args.join('_').gsub(/[^a-zA-Z0-9_]+/,'')
       comment = '_' + comment unless comment == ''
       filename = "#{@server.properties['level-name']}_#{Time.now.strftime('%Y%m%d%H%M%S_%A_%B_%d')}#{comment}.tar.gz"
       @server.log "writing file #{filename}", :debug
@@ -436,6 +436,7 @@ end
 
 class PrecipCommand < OreoCommand
   HELP = '/precip - toggle rain and snow'
+  NOISY = true
   bind :precip
   
   def execute

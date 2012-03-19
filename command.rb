@@ -414,9 +414,9 @@ class PotionCommand < OreoCommand
     'ii' => 2
   }
 
-  ARG_REGEX = /^(?<extended>extended)?\s*(?<splash>splash)?\s*(?<effect>#{POTION_EFFECTS.keys.sort.join('|')})\s*(?<tier>#{POTION_TIERS.keys.sort.join('|')})?$/
+  ARG_REGEX = /^(?<quantity>\d+)\s*(?<extended>extended)?\s*(?<splash>splash)?\s*(?<effect>#{POTION_EFFECTS.keys.sort.join('|')})\s*(?<tier>#{POTION_TIERS.keys.sort.join('|')})?$/
   
-  HELP = "/potion <player> [extended] [splash] <#{POTION_EFFECTS.keys.sort.join(' | ')}> [#{POTION_TIERS.keys.join(' | ')}] - gives player that potion"
+  HELP = "/potion <player> [quantity] [extended] [splash] <#{POTION_EFFECTS.keys.sort.join(' | ')}> [#{POTION_TIERS.keys.join(' | ')}] - gives player that potion"
   bind :potion
   
   def execute(player,*args)
@@ -429,8 +429,15 @@ class PotionCommand < OreoCommand
     extended = (match[:extended] and 1 or 0)
     splash = (match[:splash] and 1 or 0)
     dv = splash*16384 + extended*64 + tier*32 + effect
-    @server.execute "give #{player} 373 1 #{dv}"
-    return "gave #{player} 1 #{match[:extended]} #{match[:splash]} potion of #{match[:effect]} #{match[:tier].upcase} (373.#{dv})".gsub(/\s+/,' ')
+    
+    qty = (match[:quantity] or 1)
+    n = qty
+    while n > 64
+      @server.execute "give #{player} 373 #{64} #{dv}"
+      n -= 64
+    end
+    @server.execute "give #{player} 373 #{n} #{dv}"
+    return "gave #{player} #{qty} #{match[:extended]} #{match[:splash]} potion of #{match[:effect]} #{(match[:tier] or '').upcase} (373.#{dv})".gsub(/\s+/,' ')
   end
 end
 

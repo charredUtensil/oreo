@@ -430,7 +430,7 @@ class PotionCommand < OreoCommand
     splash = (match[:splash] and 1 or 0)
     dv = splash*16384 + extended*64 + tier*32 + effect
     
-    qty = (match[:quantity] or 1)
+    qty = (match[:quantity] or 1).to_i
     n = qty
     while n > 64
       @server.execute "give #{player} 373 #{64} #{dv}"

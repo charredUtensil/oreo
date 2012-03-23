@@ -4,9 +4,13 @@
 3     dirt
 4     cobblestone
 5     wooden plank, plank
+5.1   redwood plank, spruce plank
+5.2   birch plank
+5.3   jungle plank
 6     sapling
 6.1   redwood sapling, spruce sapling
 6.2   birch sapling
+6.3   jungle sapling
 7     bedrock
 12    sand
 13    gravel
@@ -27,6 +31,8 @@
 22    lapis lazuli block
 23    dispenser
 24    sandstone
+24.1  hieroglyphic sandstone
+24.2  smooth sandstone
 25    note block
 27    powered rail
 28    detector rail

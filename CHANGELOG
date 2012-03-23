@@ -70,10 +70,14 @@ Version 0.12    /fortune command is available if /usr/games/fortune exists
         0.12.7  fixed a potential security flaw in /backup
                 /precip is now NOISY
                 added end portal frame to /give
+Version 0.13    added items for 1.2.4
+                tested with 1.2.4
+                fixed README
+                new github strategum
 
 UPCOMING FEATURES
 - Don't update if no newer version
-- /redo or /r: repeat last command user did
+- /redo or /r: repeat last command user did (jeb did it! yay!)
 - Support for triggered events (execute scripts on login, logout, etc...)
 - Modding support (Yeah! Modding a mod! Who'd've thought?)
 - Multiple names for a command

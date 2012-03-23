@@ -8,13 +8,13 @@ require File.expand_path(File.dirname(__FILE__) + '/logger.rb')
 
 class MinecraftServer
   # Version constants
-  OREO_VERSION = '0.12.7'
+  OREO_VERSION = '0.13'
   SUPPORTED_MINECRAFT_VERSIONS = [
     'Beta 1.7.3',
     'Beta 1.8.1',
     '1.0.0', '1.0.1',
     '1.1',
-    '1.2.2','1.2.3'
+    '1.2.2','1.2.3','1.2.4'
   ]
   
   # Numeric constants
@@ -285,7 +285,7 @@ class MinecraftServer
         log "Updating Oreo from Git repository", :info
         return system "cd #{OREO_DIRECTORY}; git pull 2>&1"
       else
-        log "Oreo must be installed with git to self-update", :error
+        log "Oreo must be installed with git to update itself", :error
         return false
       end
     rescue Exception => e

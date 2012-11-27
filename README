@@ -1,3 +1,5 @@
+NOTICE: Due to some changes within Minecraft, Oreo is incompatible with Minecraft 1.3+. I have no plans to fix it because most of its features have been made obsolete by changes in 1.3 anyway.
+
 Oreo is a lightweight wrapper designed to add a simplified permissions system to an existing vanilla Minecraft server. It is designed to be agile, ready to handle even weekly snapshots with a minimum of fuss, whereas most commonly used mods take days or weeks to adapt to Mojang's changes. As it does not and cannot implement protection or other similar features offered by standard Minecraft or Bukkit mods, Oreo is not meant to be an anti-griefing tool. However, it is incredibly useful for smaller private servers
 
 Features:
